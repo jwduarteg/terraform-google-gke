@@ -154,6 +154,11 @@ resource "google_container_cluster" "cluster" {
       key_name = database_encryption.value
     }
   }
+
+  # enabling workload_identity_config
+  workload_identity_config {
+    identity_namespace = "${var.project}.svc.id.goog"
+  }
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
